@@ -8,7 +8,7 @@ const run = async () => {
     const header = fs.readFileSync(core.getInput("source"), "utf8");
     const prefix = core.getInput("prefix");
     const suffix = core.getInput("suffix");
-    const globber = glob.create(core.getMultilineInput("filter").join("\n"));
+    const globber = await glob.create(core.getMultilineInput("filter").join("\n"));
 
     for await (const file of globber.globGenerator()) {
         const contents = fs.readFileSync(file, "utf8");
