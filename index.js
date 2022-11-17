@@ -10,7 +10,7 @@ const run = async () => {
     const header = fs.readFileSync(core.getInput("source"), "utf8");
     const filter = core.getInput("filter");
 
-    const files = await recursive(".", [(file, stats) => stats.isFile() && !minimatch(path.basename(file), filter)]);
+    const files = await recursive(".", [".git", (file, stats) => stats.isFile() && !minimatch(path.basename(file), filter)]);
 
     for await (const file of files) {
         const contents = fs.readFileSync(file, "utf8");

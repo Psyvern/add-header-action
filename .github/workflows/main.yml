@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Hello world action step
         id: hello
-        uses: psyvern/add-header-action@v0.5
+        uses: psyvern/add-header-action@v0.6
         with:
           source: 'action.yml'
           filter: '*'
