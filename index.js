@@ -4,7 +4,7 @@ const fs = require("fs");
 const minimatch = require("minimatch");
 const recursive = require("recursive-readdir");
 
-export const run = async () => {
+const run = async () => {
 
     const header = fs.readFileSync(core.getInput("source"), "utf8");
     const filter = core.getInput("filter");
