@@ -10,9 +10,6 @@ inputs:
         description: 'The filter specifying the files to target'
         required: true
         default: '*'
-outputs:
-    time:
-        description: 'The time we greeted you'
 runs:
     using: 'node16'
     main: 'index.js'
