@@ -9,7 +9,7 @@ jobs:
         id: hello
         uses: psyvern/add-header-action@v0.3
         with:
-          source: 'Mona the Octocat'
+          source: 'action.yml'
           filter: '*'
       # Use the output from the `hello` step
       - name: Get the output time
