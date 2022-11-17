@@ -11,7 +11,9 @@ jobs:
         id: hello
         uses: psyvern/add-header-action@v0.6
         with:
-          source: 'action.yml'
-          filter: '*'
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          source: action.yml
+          filter: *
+      - uses: actions/upload-artifact@v3
+        with:
+          name: boi
+          path: action.yml
