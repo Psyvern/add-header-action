@@ -9,7 +9,7 @@ const run = async () => {
     const header = fs.readFileSync(core.getInput("source"), "utf8");
     const filter = core.getInput("filter");
 
-    const files = await recursive("", [(file, stats) => stats.isFile() && !minimatch(file.name, filter)]);
+    const files = await recursive(".", [(file, stats) => stats.isFile() && !minimatch(file.name, filter)]);
 
     for await (const file of files) {
         const contents = fs.readFileSync(file, "utf8");
