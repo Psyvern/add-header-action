@@ -1,0 +1,14 @@
+name: 'Add Header'
+author: 'Psyvern'
+description: 'Adds a header to specified files'
+inputs:
+    source:
+        description: 'The file containing the header'
+        required: true
+        default: '.github/FILE_HEADER'
+outputs:
+    time:
+        description: 'The time we greeted you'
+runs:
+    using: 'node16'
+    main: 'index.js'
