@@ -6,6 +6,10 @@ inputs:
         description: 'The file containing the header'
         required: true
         default: '.github/FILE_HEADER'
+    filter:
+        description: 'The filter specifying the files to target'
+        required: true
+        default: '*'
 outputs:
     time:
         description: 'The time we greeted you'
