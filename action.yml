@@ -10,6 +10,14 @@ inputs:
         description: 'The filter specifying the files to target'
         required: true
         default: '*'
+    prefix:
+        description: 'The prefix for the inserted content'
+        required: false
+        default: ''
+    suffix:
+        description: 'The suffix for the inserted content'
+        required: false
+        default: ''
 runs:
     using: 'node16'
     main: 'index.js'

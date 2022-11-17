@@ -1,21 +1,19 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
+const glob = require("@actions/glob");
 const fs = require("fs");
-const path = require("path");
-const minimatch = require("minimatch");
-const recursive = require("recursive-readdir");
 
 const run = async () => {
 
     const header = fs.readFileSync(core.getInput("source"), "utf8");
-    const filter = core.getInput("filter");
+    const prefix = core.getInput("prefix");
+    const suffix = core.getInput("suffix");
+    const globber = glob.create(core.getMultilineInput("filter").join("\n"));
 
-    const files = await recursive(".", [".git", (file, stats) => stats.isFile() && !minimatch(path.basename(file), filter)]);
-
-    for await (const file of files) {
+    for await (const file of globber.globGenerator()) {
         const contents = fs.readFileSync(file, "utf8");
-        fs.writeFileSync(file, `${header}${contents}`);
-        console.log("Added header", file);
+        fs.writeFileSync(file, `${prefix}${header}${suffix}${contents}`);
+        console.log("Added header:", file);
     }
 };
 
