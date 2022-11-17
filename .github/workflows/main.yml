@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: psyvern/add-header-action@v0.2
+        uses: psyvern/add-header-action@v0.3
         with:
           source: 'Mona the Octocat'
           filter: '*'
